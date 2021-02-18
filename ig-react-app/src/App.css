@@ -1,31 +1,25 @@
-html {
-    scroll-snap-type: y mandatory;
+* {
+    margin: 0;
 }
-
 .app {
     display: grid;
     place-items: center;
     height: 100vh;
-    background-color: black;
+    background-color: #fafafa;
 }
 
-.app__top > h1 {
-    text-align:  center;
-    color: white;
+.app__header {
+    background-color: white;   
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+    object-fit: contain;
 }
 
-.app__logo {
-    height: 12vh;
+.app__headerImage {   
+    object-fit: contain;
 }
 
-.app__videos {
-    position: relative;
-    height: 65vh;
-    background-color: white;
-    width: 70%;
-    border-radius: 20px;
-    max-width: 450px;
-    max-height: 1200px;
-    overflow: scroll;
-    scroll-snap-type: y mandatory;
+.app__signup {
+    display: flex;
+    flex-direction: column;
 }
