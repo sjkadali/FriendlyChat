@@ -46,7 +46,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(()=> {
-    auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         console.log(authUser +" loggedin");
         setUser(authUser);       
@@ -54,6 +54,9 @@ function App() {
         setUser(null);
       }
     })
+    return () => {
+      unsubscribe();
+    }
   }, [user, username]);
 
   useEffect(() => {
@@ -85,13 +88,7 @@ function App() {
   }
 
   return (
-    <div className="app">
-      { user?.displayName ? (
-          <ImageUpload username={user.displayName} />
-      ) : (
-       <h3>Sorry, you need to login to upload</h3>
-       )}
-
+    <div className="app">      
       <Modal
         open={open}
         onClose={()=> setOpen(false)}
@@ -161,23 +158,29 @@ function App() {
           className="app__headerImage" 
           src={iglogo}
           alt=""
-        />       
-      </div>
-      { user ? (
+        />  
+         { user ? (
         <Button onClick={()=> auth.signOut()}>Logout</Button>
       ) : (
         <div className="app__loginContainer">
           <Button onClick={()=> setOpenSignIn(true)}>Sign In</Button>
           <Button onClick={()=> setOpen(true)}>Sign Up</Button>
         </div>
-      )}
+      )}     
+      </div>     
       <h1>Welcome to Instagram React App</h1>    
-      <div>
+      <div className="app__posts">
         {
           posts.map(({id, post}) => (
-          <Post key={id || username } username={post.username} caption={post.caption} imageUrl={post.imageUrl} />          
+          <Post key={id} postId={id} username={post.username} user={user} caption={post.caption} imageUrl={post.imageUrl} />          
           ))}
-      </div>      
+      </div>
+      { user?.displayName ? (
+          <ImageUpload username={user.displayName} />
+      ) : (
+       <h3>Sorry, you need to login to upload</h3>
+       )}
+      
     </div>
   )
 }

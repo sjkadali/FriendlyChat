@@ -1,11 +1,17 @@
 * {
     margin: 0;
 }
-.app {
-    display: grid;
-    place-items: center;
-    height: 100vh;
+.app {    
     background-color: #fafafa;
+    padding: 20px;
+}
+
+.app > h1 {
+    padding: 20px;
+}
+
+.app__posts {
+    padding: 20px;
 }
 
 .app__header {
@@ -13,13 +19,14 @@
     padding: 20px;
     border-bottom: 1px solid lightgray;
     object-fit: contain;
+    display: flex;
+    justify-content: space-between;
 }
 
 .app__headerImage {   
     object-fit: contain;
 }
 
-.app__signup {
-    display: flex;
+.app__signup { 
     flex-direction: column;
 }
