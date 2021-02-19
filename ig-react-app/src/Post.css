@@ -1,12 +1,11 @@
 .post {
-    background-color: white;
+    background-color: rgb(235, 241, 239);
     max-width: 500px;
     border: 1px solid lightgray;  
     padding: 20px;
 }
 .post__image {
-    height: 50px;
-    width: 100px;    
+   object-fit: contain;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
 }
@@ -33,6 +32,12 @@
 
 .post__comments {
     padding: 20px;
+    color: rgb(16, 16, 34);
+    background-color: white
+}
+
+.post__comment {
+    padding: 10px;
 }
 
 .post__input {

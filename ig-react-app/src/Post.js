@@ -5,6 +5,7 @@ import { db } from './firebase';
 import postImage from './images//IMG_0358.png';
 import './Post.css';
 import firebase from 'firebase';
+import Comment from './Comment';
 
 function Post({postId, user, username, caption, imageUrl}) {
     const [comments , setComments] = useState([]);
@@ -19,7 +20,11 @@ function Post({postId, user, username, caption, imageUrl}) {
                 .collection("comments")
                 .orderBy("timestamp", "desc")
                 .onSnapshot((snapshot) => {
-                    setComments(snapshot.docs.map((doc) => doc.data()));
+                    setComments(snapshot.docs.map((doc) => ({
+                        id: doc.id,
+                        comment: doc.data()
+                        })
+                    ));                    
                 })
         }
         return () => {
@@ -37,29 +42,28 @@ function Post({postId, user, username, caption, imageUrl}) {
         })
         setComment('');
     }
-
+  
     return (
         <div className="post">
             <div className="post__header">
-            <Avatar 
-                className="post__avatar"
-                alt="sj"
-                src="/images/logo192.png"
-            />              
-            <h3>{username}</h3>
+                <Avatar 
+                    className="post__avatar"
+                    alt="sj"
+                    src="/images/logo192.png"
+                />              
+                <h3>{username}</h3>                 
             </div>        
-            <img className="post_image" src={imageUrl} alt="image"/>
+            <img className="post__image" src={imageUrl} alt="image"/>
          
-            <h4 className="post__text"><strong>{username} :</strong>{ caption}</h4>
-
-            <div className="post__comments">
-                {comments && comments.map((comment) => {
-                    <p>
-                        <strong>{comment.username}</strong> { comment.text}
-                    </p>
-                })}
-
+           {caption &&  <h4 className="post__text"><strong>{username} :</strong>{ caption}</h4>
+            }
+           
+            <div className="post__comments">                
+                { comments.map(({id, comment}) => (                  
+                    <Comment key={id} id={id} username={comment.username} text= {comment.text} />     
+                ))}  
             </div>
+           
             <form className="post__commentBox">
                 <input
                     className="post__input"
