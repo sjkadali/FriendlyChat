@@ -3,10 +3,10 @@
 export function seedDatabase(firebase) {
     const users = [
       {
-        userId: 'NvPY9M9MzFTARQ6M816YAzDJxZ72',
-        username: 'karl',
-        fullName: 'Karl Hadwen',
-        emailAddress: 'karlhadwen@gmail.com',
+        userId: 'HpKmvqnF4RNWkmLyP7TZcWxpgmR2',
+        username: 'saj',
+        fullName: 'Saj K',
+        emailAddress: 'skadalikat@gmail.com',
         following: ['2'],
         followers: ['2', '3', '4'],
         dateCreated: Date.now()
@@ -17,16 +17,16 @@ export function seedDatabase(firebase) {
         fullName: 'Raffaello Sanzio da Urbino',
         emailAddress: 'raphael@sanzio.com',
         following: [],
-        followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+        followers: ['HpKmvqnF4RNWkmLyP7TZcWxpgmR2'],
         dateCreated: Date.now()
       },
       {
         userId: '3',
-        username: 'dali',
-        fullName: 'Salvador Dalí',
-        emailAddress: 'salvador@dali.com',
+        username: 'siju',
+        fullName: 'Sajna Rajesh',
+        emailAddress: 'sajna_rajesh@yahoo.com',
         following: [],
-        followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+        followers: ['HpKmvqnF4RNWkmLyP7TZcWxpgmR2'],
         dateCreated: Date.now()
       },
       {
@@ -35,7 +35,7 @@ export function seedDatabase(firebase) {
         fullName: 'George Orwell',
         emailAddress: 'george@orwell.com',
         following: [],
-        followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+        followers: ['HpKmvqnF4RNWkmLyP7TZcWxpgmR2'],
         dateCreated: Date.now()
       }
     ];

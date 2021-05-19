@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import FirebaseContext from './context/firebase';
+import { firebase, fieldValue } from './lib/firebase';
+import './App.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render( <FirebaseContext.Provider value={{ firebase, fieldValue }}>
+    <App />
+  </FirebaseContext.Provider>, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
