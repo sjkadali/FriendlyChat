@@ -5,10 +5,10 @@ export default function useUser(userId) {
     const [activeUser, setActiveUser] = useState();
 
     useEffect(() => {
-        async function getUserObjByUserId(userId) {
+        async function getUserObjByUserId(userId) {           
             const [user] = await getUserByUserId(userId);
             console.log('use-user/ user:', user);
-            setActiveUser(user || {});
+            setActiveUser(user || {});           
         }       
         if (userId) {
             getUserObjByUserId(userId);

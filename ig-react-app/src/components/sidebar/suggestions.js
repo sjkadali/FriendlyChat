@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Suggestions() {
+export default function Suggestions({ userId, following, loggedInUserDocId }) {
     return (
         <div>
-            <h1>Suggestions</h1>
+        <h1>Suggestions, ${userId},  ${following}</h1>
         </div>
     )
 }
+
+Suggestions.propTypes = {
+    userId: PropTypes.string,
+    following: PropTypes.array,
+    loggedInUserDocId: PropTypes.string
+};
