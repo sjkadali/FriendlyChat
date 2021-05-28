@@ -13,13 +13,13 @@ const Dashboard = lazy(() => import ('./pages/dashboard'));
 
 function App() {    
   const { user } = useAuthListener();
-  console.log('user: ', user);
+  
   return (
     <UserContext.Provider value={{ user }}>
       <Router>
         <Suspense fallback={<p>Loading...</p>}>
         <Switch>
-          <Route user={user} path={ROUTES.DASHBOARD} component={Dashboard}  exact/>
+          <Route path={ROUTES.DASHBOARD} component={Dashboard}  exact/>
           <Route path={ROUTES.LOGIN} component={Login} exact/>
           <Route path={ROUTES.SIGN_UP} component={SignUp} exact/>
           <Route component={NotFound}  />
