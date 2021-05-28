@@ -9,13 +9,13 @@ import UserContext from '../context/user';
 
 
 export default function Dashboard() {
-    const { user: loggedInUser } = useContext(UserContext);
-    const { user, setActiveUser } = useUser(loggedInUser.uid);
-    useEffect(() => {
-      document.title = 'Instagram';
-    }, []);
+  const { user: loggedInUser } = useContext(UserContext);
+  const { user, setActiveUser } = useUser(loggedInUser?.uid);
+  useEffect(() => {
+    document.title = 'Instagram';
+  }, []);
     
-console.log("user: ", user);
+//console.log("user: ", user);
   return (
     <LoggedInUserContext.Provider value={{ user, setActiveUser }}>
       <div className="bg-gray-background">

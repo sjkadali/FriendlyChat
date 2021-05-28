@@ -6,7 +6,6 @@ import LoggedInUserContext from '../../context/logged-in-user';
 
 export default function Sidebar() {
     const { user } = useContext(LoggedInUserContext);
-    console.log('Sidebar- username:', user?.username);
     return (
         <div className="p-4">
             <User username={user?.username} fullName={user?.fullName} />

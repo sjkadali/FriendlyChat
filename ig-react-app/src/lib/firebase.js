@@ -1,6 +1,6 @@
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
-import Firebase from "firebase";
+import Firebase from "firebase/firebase";
 // Add the Firebase services that you want to use
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
