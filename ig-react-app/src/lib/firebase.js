@@ -2,7 +2,7 @@
 // must be listed before other Firebase SDKs
 import Firebase from "firebase/firebase";
 // Add the Firebase services that you want to use
-
+//import * as admin from 'firebase-admin';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
@@ -17,8 +17,8 @@ const firebaseConfig = {
 };
 
   const firebase = Firebase.initializeApp(firebaseConfig);
-  const fieldValue = Firebase.firestore();
+  const FieldValue = Firebase.firestore.FieldValue;
   const auth = Firebase.auth();
   const storage = Firebase.storage();
 
-  export {firebase, fieldValue, auth, storage};
+  export {firebase, FieldValue, auth, storage};
