@@ -30,8 +30,7 @@ function App() {
           <ProtectedRoute user={user} path={ROUTES.DASHBOARD} exact>
             <Dashboard />
           </ProtectedRoute>
-          <Route path={ROUTES.LOGIN} component={Login} exact/>
-          <Route path={ROUTES.SIGN_UP} component={SignUp} exact/>
+          <Route path={ROUTES.PROFILE} component={Profile} />
           <Route component={NotFound}  />
         </Switch>
         </Suspense>
