@@ -15,7 +15,7 @@ export default function Dashboard() {
     document.title = 'Instagram';
   }, []);
     
-//console.log("user: ", user);
+console.log("user: ", user);
   return (
     <LoggedInUserContext.Provider value={{ user, setActiveUser }}>
       <div className="bg-gray-background">
