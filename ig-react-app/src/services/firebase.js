@@ -16,11 +16,11 @@ export async function getUserByUsername(username) {
       .collection('users')
       .where('username', '==', username)
       .get();
-  const user = result.docs.map((item) => ({
+  
+  return result.docs.map((item) => ({
     ...item.data(),
     docId: item.id
   }));
-  return user;
 }
 
 // get user from the firestore where userId === userId (passed from the auth)
@@ -105,6 +105,14 @@ export async function getSuggestedProfiles(userId, following) {
     );
 
     return photosWithUserDetails;
+  }
+
+  export async function getUserIdByUsername(username) {
+    
+  }
+
+  export async function getUserPhotosByUsername(username) {
+    const userId = await getUserIdByUsername(username);
   }
 
   export async function getUserPhotosByUserId(userId) {

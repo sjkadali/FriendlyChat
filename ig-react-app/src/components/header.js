@@ -1,15 +1,14 @@
 import { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
-//import UserContext from '../context/user';
+import UserContext from '../context/user';
 import * as ROUTES from '../constants/routes';
 import { DEFAULT_IMAGE_PATH } from '../constants/paths';
 import useUser from '../hooks/use-user';
-import LoggedInUserContext from '../context/logged-in-user';
 
 export default function Header() {
-  const { user: loggedInUser } = useContext(LoggedInUserContext);
-  //console.log('loggedInUser: ', loggedInUser);
+  const { user: loggedInUser } = useContext(UserContext);
+ console.log('loggedInUser: ', loggedInUser);
 
   const { user } = useUser(loggedInUser?.uid);
   const { firebase } = useContext(FirebaseContext);
@@ -76,10 +75,10 @@ export default function Header() {
                 </button>
                 { loggedInUser ?  (
                   <div className="flex items-center cursor-pointer">                    
-                    <Link to={`/p/${loggedInUser?.username}`}>
+                    <Link to={`/p/${user?.username}`}>
                       <img
                         className="rounded-full h-8 w-8 flex"
-                        src={`/images/avatars/${loggedInUser?.username}.jpg`}
+                        src={`/images/avatars/${user?.username}.jpg`}
                         alt={`${loggedInUser?.username} profile`}
                         onError={(e) => {
                           e.target.src = DEFAULT_IMAGE_PATH;
