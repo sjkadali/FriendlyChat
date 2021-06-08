@@ -108,11 +108,20 @@ export async function getSuggestedProfiles(userId, following) {
   }
 
   export async function getUserIdByUsername(username) {
-    
+
   }
 
   export async function getUserPhotosByUsername(username) {
-    const userId = await getUserIdByUsername(username);
+    const [user] = await getUserByUsername(username);
+    const result = await firebase
+      .firestore()
+      .collection('photos')
+      .where('userId', '==', user.userId)
+      .get();
+    return result.docs.map((item) => ({
+      ...item.data(),
+      docId: item.id
+    }));
   }
 
   export async function getUserPhotosByUserId(userId) {
@@ -133,7 +142,7 @@ export async function getSuggestedProfiles(userId, following) {
     const result = await firebase
       .firestore()
       .collection('users')
-      .where('username', '==', loggedInUserUsername) // karl (active logged in user)
+      .where('username', '==', loggedInUserUsername)
       .where('following', 'array-contains', profileUserId)
       .get();
   
@@ -152,13 +161,8 @@ export async function getSuggestedProfiles(userId, following) {
     profileUserId,
     followingUserId
   ) {
-    // 1st param: karl's doc id
-    // 2nd param: raphael's user id
-    // 3rd param: is the user following this profile? e.g. does karl follow raphael? (true/false)
+    
     await updateLoggedInUserFollowing(activeUserDocId, profileUserId, isFollowingProfile);
-  
-    // 1st param: karl's user id
-    // 2nd param: raphael's doc id
-    // 3rd param: is the user following this profile? e.g. does karl follow raphael? (true/false)
+     
     await updateFollowedUserFollowers(profileDocId, followingUserId, isFollowingProfile);
   }
