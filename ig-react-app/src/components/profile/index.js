@@ -5,12 +5,11 @@ import Photos from './photos';
 import { getUserPhotosByUsername } from '../../services/firebase';
 
 export default function Profile({user}) {
-   /*  const { username } = username;
-    console.log("user, username", username); */
+  
     const reducer = (state, newState) => ({ ...state, ...newState });
     const initialState = {
         profile: {},
-        photosCollection: [],
+        photosCollection: null,
         followerCount: 0
     };
 
@@ -22,8 +21,7 @@ export default function Profile({user}) {
     useEffect(() => {
         async function getProfileInfoAndPhotos() {
            // const [user] = await getUserByUsername(user?.username);
-            const photos = getUserPhotosByUsername(user?.username);
-            console.log('photos:', photos);
+            const photos =   await getUserPhotosByUsername(user?.username);
             dispatch({ profile: user, photosCollection: photos, followerCount: user?.
                 followers.length });
         }
@@ -50,7 +48,7 @@ export default function Profile({user}) {
 Profile.propTypes = {
     user: PropTypes.shape({
         dateCreated: PropTypes.number.isRequired,
-        emaailAddress: PropTypes.string.isRequired,
+        emailAddress: PropTypes.string.isRequired,
         followers: PropTypes.array.isRequired,
         following: PropTypes.array.isRequired,
         fullName: PropTypes.string.isRequired,

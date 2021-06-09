@@ -118,10 +118,11 @@ export async function getSuggestedProfiles(userId, following) {
       .collection('photos')
       .where('userId', '==', user.userId)
       .get();
-    return result.docs.map((item) => ({
-      ...item.data(),
-      docId: item.id
-    }));
+      const photos = result.docs.map((photo) => ({
+        ...photo.data(),
+        docId: photo.id
+      }));
+      return photos;
   }
 
   export async function getUserPhotosByUserId(userId) {

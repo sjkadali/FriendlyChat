@@ -6,9 +6,8 @@ import Header from '../components/header';
 import UserProfile from '../components/profile/index';
 
 export default function Profile() {
-    const  {username}  = useParams();
-    console.log('username', username);
-    const [user, setUser] = useState(null);
+  const  {username}  = useParams();
+  const [user, setUser] = useState(null);
   const history = useHistory();
   
   useEffect(() => {

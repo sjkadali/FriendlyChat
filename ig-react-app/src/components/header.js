@@ -8,8 +8,6 @@ import useUser from '../hooks/use-user';
 
 export default function Header() {
   const { user: loggedInUser } = useContext(UserContext);
- console.log('loggedInUser: ', loggedInUser);
-
   const { user } = useUser(loggedInUser?.uid);
   const { firebase } = useContext(FirebaseContext);
   const history = useHistory();

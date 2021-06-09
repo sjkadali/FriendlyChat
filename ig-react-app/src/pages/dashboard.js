@@ -9,7 +9,7 @@ import UserContext from '../context/user';
 
 
 export default function Dashboard() {
-  const { user: loggedInUser } = useContext(UserContext);
+  const { user: loggedInUser} = useContext(UserContext);
   const { user, setActiveUser } = useUser(loggedInUser?.uid);
   useEffect(() => {
     document.title = 'Instagram';

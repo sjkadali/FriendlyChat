@@ -48,7 +48,7 @@ export default function AddComment({docId, comments, setComments, commentInput})
                 <button
                     className={`text-sm font-bold text-blue-medium ${!comment && 'opacity-25'}`}
                     type="button"
-                    displayName={comment.length <1}
+                    // displayName={comment.length <1}
                     onClick={handleSubmitComment}
                 >
                     Post
