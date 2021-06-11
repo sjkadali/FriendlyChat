@@ -25,4 +25,4 @@ yarn-error.log*
 public/images
 src/images
 src/videos
-src/firebase.js
+src/lib/firebase.js
