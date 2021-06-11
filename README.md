@@ -1,2 +1,2 @@
-# InstagramReactApp
-This is an instagram app created using React & Firebase.
+# FriendlyChat
+This is a social media app created using React & Firebase.
