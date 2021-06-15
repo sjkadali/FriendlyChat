@@ -13,7 +13,7 @@ export default function Header() {
   const history = useHistory();
 
   return (
-    <header className="h-25 bg-black-light border-b border-gray-primary mb-8">
+    <header className="h-25 bg-black-light border-b border-gray-primary mb-10">
       <div className="container mx-auto max-w-screen-lg h-full">
         <div className="flex justify-between h-full">
           <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
@@ -70,21 +70,20 @@ export default function Header() {
                       d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                     />
                   </svg>
-                </button>
-                { loggedInUser ?  (
-                  <div className="flex items-center text-white cursor-pointer">                    
+                </button>     
+                                    
                     <Link to={`/p/${user?.username}`}>
                       <img
-                        className="rounded-full h-8 w-8 flex"
+                        className="rounded-full  w-16 flex mr-6"
                         src={`/images/avatars/${user?.username}.jpg`}
-                        alt={`${loggedInUser?.username} profile`}
+                        alt={`${user?.username} profile`}
                         onError={(e) => {
                           e.target.src = DEFAULT_IMAGE_PATH;
                         }}
                       />
                     </Link>
-                  </div>
-                ): null}
+                  
+               
                 </>            
             ) : (
               <>
