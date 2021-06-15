@@ -14,8 +14,9 @@ export default function useAuthListener() {
                 localStorage.removeItem('authUser');
                 setUser(null);
             }
-        })        
-    }, []);
+        });
+        return () => listener();        
+    }, [firebase]);
 
     return {
         user

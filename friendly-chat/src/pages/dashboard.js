@@ -15,9 +15,9 @@ export default function Dashboard() {
     document.title = 'Instagram';
   }, []);
     
-console.log("user: ", user);
+console.log("loggedInUser, user: ",loggedInUser, user);
   return (
-    <LoggedInUserContext.Provider value={{ user, setActiveUser }}>
+    <LoggedInUserContext.Provider value={{user, setActiveUser }}>
       <div className="bg-gray-primary">
         <Header />
         <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
