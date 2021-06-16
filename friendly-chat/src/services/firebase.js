@@ -107,10 +107,6 @@ export async function getSuggestedProfiles(userId, following) {
     return photosWithUserDetails;
   }
 
-  export async function getUserIdByUsername(username) {
-
-  }
-
   export async function getUserPhotosByUsername(username) {
     const [user] = await getUserByUsername(username);
     const result = await firebase
