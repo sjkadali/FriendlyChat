@@ -8,7 +8,7 @@ export default function AddComment({docId, comments, setComments, commentInput})
     const { firebase, FieldValue } = useContext(FirebaseContext);
     const {
         user: { displayName }
-    } = useContext(UserContext);
+    } = useContext(UserContext);    
 
     const handleSubmitComment = (event) => {
         event.preventDefault();
@@ -26,7 +26,7 @@ export default function AddComment({docId, comments, setComments, commentInput})
     };
 
     return (
-        <div className="border-t border-gray-primary">
+        <div className="border-t border-gray-primary">                
             <form
                 className="flex justify-between pl-0 pr-5"
                 method="POST"
@@ -51,7 +51,7 @@ export default function AddComment({docId, comments, setComments, commentInput})
                     // displayName={comment.length <1}
                     onClick={handleSubmitComment}
                 >
-                    Post
+                    Add Comment
                 </button>
             </form>           
         </div>

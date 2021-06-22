@@ -14,7 +14,7 @@ const Profile = lazy(() => import ('./pages/profile'));
 
 function App() {    
   const { user } = useAuthListener();
-  
+  console.log("user:" , user);
   return (
     <UserContext.Provider value={{ user }}>
       <Router>

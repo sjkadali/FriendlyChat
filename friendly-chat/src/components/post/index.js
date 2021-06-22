@@ -8,8 +8,8 @@ import Comments from './comments';
 
 export default function Post({ content }) {
     const commentInput = useRef(null);
-    const handleFocus = () => commentInput.current.focus();
-   // console.log('docId, content: '+ content.docId, content);
+    const handleFocus = () => commentInput.current.focus();    
+
     return (
         <div className="rounded col-span-4 border bg-gray-primary border-gray-base mb-12">
             <Header username={content.username} />

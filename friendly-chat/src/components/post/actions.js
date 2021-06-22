@@ -11,8 +11,6 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }) 
     const [likes, setLikes] = useState(totalLikes);
     const { firebase, FieldValue} = useContext(FirebaseContext);
 
-    //console.log('docId, userId, likedPhoto, likes, totalLikes ',docId, userId,likedPhoto, likes, totalLikes);
-
     const handleToggleLiked = async () => {
         setToggleLiked((toggleLiked) => !toggleLiked);
 

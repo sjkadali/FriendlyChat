@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import UserContext from '../context/user';
+import LoggedInUserContext from '../context/logged-in-user';
 import * as ROUTES from '../constants/routes';
 import { DEFAULT_IMAGE_PATH } from '../constants/paths';
 import useUser from '../hooks/use-user';
@@ -11,15 +12,17 @@ export default function Header() {
   const { user } = useUser(loggedInUser?.uid);
   const { firebase } = useContext(FirebaseContext);
   const history = useHistory();
+  console.log("user, loggedInUser:" , user, loggedInUser);
+
 
   return (
-    <header className="h-25 bg-black-light border-b border-gray-primary mb-10">
+    <header className="h-27 bg-black-light border-b border-gray-primary mb-10">
       <div className="container mx-auto max-w-screen-lg h-full">
         <div className="flex justify-between h-full">
           <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
             <h1 className="flex justify-center w-full">
               <Link to={ROUTES.DASHBOARD} aria-label="Instagram logo">
-                <img src="/images/FriendlyChat-5.png" alt="FriendlyChat" className="mt-2 w-2/12" />
+                <img src="/images/FriendlyChat.png" alt="FriendlyChat" className="mt-2 w-2/12" />
               </Link>
             </h1>
           </div>
